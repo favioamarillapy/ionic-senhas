@@ -1,0 +1,13 @@
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+ion-content ion-toolbar {
+  margin: 10px 0;
+}
+
+ion-button{
+  margin-left: auto;
+  margin-right: auto;
+  display: block !important;
+}

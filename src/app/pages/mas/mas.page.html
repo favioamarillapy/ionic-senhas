@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Más
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <i class="fas fa-user text-warning"></i> &nbsp;&nbsp;&nbsp;
+      <ion-label>Mi Perfil</ion-label>
+    </ion-item>
+    <ion-item>
+      <i class="fas fa-book text-info"></i> &nbsp;&nbsp;&nbsp;
+      <ion-label>Acerca De</ion-label>
+    </ion-item>
+    <ion-item>
+      <i class="fas fa-envelope text-success"></i> &nbsp;&nbsp;&nbsp;
+      <ion-label>Sugerencias</ion-label>
+    </ion-item>
+    <ion-item (click)="logout()">
+      <i class="fas fa-sign-out-alt text-danger"></i> &nbsp;&nbsp;&nbsp;
+      <ion-label> Cerrar Sesión </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

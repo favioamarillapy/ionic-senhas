@@ -1,0 +1,80 @@
+<ion-header  [translucent]="true" class="ion-margin-bottom">
+  <ion-toolbar color="primary">
+    <ion-title>Acceder</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-toolbar>
+    <ion-segment value="login" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="login"> Login </ion-segment-button>
+      <ion-segment-button value="registro"> Registro </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-grid class="ion-padding" *ngIf="page == 'login'">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="ion-align-items-center">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="usuario.email"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-align-items-center">
+        <ion-item>
+          <ion-label position="floating">Clave acceso</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="usuario.password"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col class="ion-margin-top">
+        <ion-button (click)="login()">
+          Acceder
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid class="ion-padding" *ngIf="page == 'registro'">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="ion-align-items-center">
+        <ion-item>
+          <ion-label position="floating">Nombre completo</ion-label>
+          <ion-input type="nombre_completo" name="nombre_completo" [(ngModel)]="usuario.nombre_completo"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-align-items-center">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="usuario.email"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-align-items-center">
+        <ion-item>
+          <ion-label position="floating">Clave acceso</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="usuario.password"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col class="ion-margin-top">
+        <ion-button (click)="registrar()">
+          Registrarse
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="my-overlay" padding *ngIf="cargando" style="align-items: center;">
+    <div class="spinner-container text-center">
+      <p>{{mensaje}}</p>
+      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

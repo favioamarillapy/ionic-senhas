@@ -1,0 +1,17 @@
+<ion-header translucent>
+    <ion-toolbar color="primary">
+        <ion-title>Glosario</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-searchbar #mySearchbar animated (ionChange)="listar($event)" placeholder="Buscar">
+    </ion-searchbar>
+
+    <ion-list>
+        <ion-item detail *ngFor="let fila of listado">
+            <ion-label (click)="mostarGlosario(fila.id)"> {{ fila.descripcion }}</ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

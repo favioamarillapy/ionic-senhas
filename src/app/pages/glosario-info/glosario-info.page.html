@@ -1,0 +1,21 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/glosario"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Glosario-info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <ion-card-header>
+      <ion-img center [src]="modelo.imagen | urlImgSanitizer: 'glosario'" width="200" height="200" class="mb-1">
+      </ion-img>
+      &nbsp;
+      <ion-card-title class="ion-text-center">{{modelo.descripcion}}</ion-card-title>
+    </ion-card-header>
+
+  </ion-card>
+</ion-content>

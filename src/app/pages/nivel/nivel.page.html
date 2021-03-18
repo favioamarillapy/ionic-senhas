@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Juegos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="3" *ngFor="let nivel of niveles" class="nivel-container rounded-circle"
+        [ngClass]="{'nivel-container-b': nivel.bloqueado == 'N'}" (click)="redirect(nivel)">
+        <p><strong *ngIf="nivel.bloqueado == 'N'">{{nivel.nivel.descripcion}}</strong></p>
+        <i *ngIf=" nivel.bloqueado == 'N'" class="fas fa-bookmark"></i>
+        <br>
+        <i *ngIf=" nivel.bloqueado == 'S'" class="fas fa-lock"></i>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="my-overlay" padding *ngIf="cargando" style="align-items: center;">
+    <div class="spinner-container text-center">
+      <p>{{mensaje}}</p>
+      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

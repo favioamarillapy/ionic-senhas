@@ -1,0 +1,68 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <div class="row">
+      <div class="col">
+        <span class="float-left">
+          <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+          </ion-buttons>
+          <!-- <ion-title>{{ subNivel.descripcion }}</ion-title> -->
+        </span>
+        <span class="float-right" style="padding: 10px;">
+          <ion-buttons slot="end">
+            <i class="fas fa-heart text-danger"></i> &nbsp;
+            <i class="fas fa-heart text-danger"></i> &nbsp;
+            <i class="fas fa-heart"></i>
+          </ion-buttons>
+        </span>
+      </div>
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager="true" [options]="slideOpts">
+
+    <ion-slide *ngFor="let juego of listado">
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="12" size-md>
+            <img class="card-img-top" [src]="juego.imagen | urlImgSanitizer: 'juego'"
+              style="width: 100%; height: 300px;">
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center mt-3">
+          <ion-col size="12" size-md>
+            <p class="text-muted">{{ juego.nombre }}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center" *ngFor="let opcion of juego.opciones">
+          <ion-col size="6" size-md>
+            <ion-button expand="block" color="success" style="border-radius: 20px;">
+              {{ opcion.descripcion }}
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <div class="my-overlay" padding *ngIf="cargando" style="align-items: center;">
+    <div class="spinner-container text-center">
+      <p style="font-size: 15px;">{{mensaje}}</p>
+      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
